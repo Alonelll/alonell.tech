@@ -2,34 +2,154 @@
 
 @layer base {
   :root {
+    /* Core app surfaces: used by shadcn primitives like bg-background/text-foreground. */
     --background: 19 19 19;
     --foreground: 226 226 226;
+    --surface: 19 19 19;
+    --surface-dim: 19 19 19;
+    --surface-bright: 57 57 57;
+    --surface-container-lowest: 14 14 14;
+    --surface-container-low: 27 27 27;
+    --surface-container: 31 31 31;
+    --surface-container-high: 42 42 42;
+    --surface-container-highest: 53 53 53;
+    --surface-variant: 53 53 53;
+    --surface-tint: 0 230 57;
+    --inverse-surface: 226 226 226;
+    --inverse-on-surface: 48 48 48;
 
-    --card: 31 31 31;
-    --card-foreground: 226 226 226;
+    /* Text contrast tokens: used for readable foregrounds on each container color. */
+    --on-background: 226 226 226;
+    --on-surface: 226 226 226;
+    --on-surface-variant: 185 204 178;
 
-    --popover: 31 31 31;
-    --popover-foreground: 226 226 226;
+    /* Brand primary family: used for CTAs, highlights and selection accents. */
+    --primary: 235 255 226;
+    --primary-container: 0 255 65;
+    --on-primary: 0 57 7;
+    --on-primary-container: 0 113 23;
+    --primary-fixed: 114 255 112;
+    --primary-fixed-dim: 0 230 57;
+    --on-primary-fixed: 0 34 3;
+    --on-primary-fixed-variant: 0 83 14;
+    --inverse-primary: 0 110 22;
 
-    --primary: 0 255 65;
-    --primary-foreground: 0 57 7;
-
+    /* Secondary family: used for warning-like accents and supporting emphasis. */
     --secondary: 255 211 147;
-    --secondary-foreground: 67 44 0;
+    --on-secondary: 67 44 0;
+    --secondary-container: 253 175 0;
+    --on-secondary-container: 105 70 0;
+    --secondary-fixed: 255 221 175;
+    --secondary-fixed-dim: 255 186 67;
+    --on-secondary-fixed: 40 24 0;
+    --on-secondary-fixed-variant: 97 64 0;
 
-    --muted: 53 53 53;
-    --muted-foreground: 185 204 178;
+    /* Tertiary family: used for warm neutral accents and cards with softer tone. */
+    --tertiary: 255 248 244;
+    --on-tertiary: 68 43 16;
+    --tertiary-container: 255 213 174;
+    --on-tertiary-container: 122 91 60;
+    --tertiary-fixed: 255 220 189;
+    --tertiary-fixed-dim: 231 191 153;
+    --on-tertiary-fixed: 44 23 1;
+    --on-tertiary-fixed-variant: 93 65 36;
 
-    --accent: 0 230 57;
-    --accent-foreground: 0 34 3;
+    /* Error family: used for destructive actions, alerts, and form validation states. */
+    --error: 255 180 171;
+    --on-error: 105 0 5;
+    --error-container: 147 0 10;
+    --on-error-container: 255 218 214;
 
-    --destructive: 255 180 171;
-    --destructive-foreground: 105 0 5;
-
+    /* Outline/input/ring: used for borders, field chrome and focus rings. */
+    --outline: 132 150 126;
+    --outline-variant: 59 75 55;
     --border: 59 75 55;
     --input: 42 42 42;
     --ring: 0 255 65;
 
+    /* shadcn compatibility aliases: mapped to common component slots. */
+    --card: 31 31 31;
+    --card-foreground: 226 226 226;
+    --popover: 31 31 31;
+    --popover-foreground: 226 226 226;
+    --primary-foreground: 0 57 7;
+    --secondary-foreground: 67 44 0;
+    --muted: 53 53 53;
+    --muted-foreground: 185 204 178;
+    --accent: 0 230 57;
+    --accent-foreground: 0 34 3;
+    --destructive: 255 180 171;
+    --destructive-foreground: 105 0 5;
+
+    /* Radius scale: used by shadcn and utility classes for squared terminal aesthetic. */
+    --radius: 0rem;
+  }
+
+  /* Dark mode placeholder: same values now, separate scope for future overrides. */
+  .dark {
+    --background: 19 19 19;
+    --foreground: 226 226 226;
+    --surface: 19 19 19;
+    --surface-dim: 19 19 19;
+    --surface-bright: 57 57 57;
+    --surface-container-lowest: 14 14 14;
+    --surface-container-low: 27 27 27;
+    --surface-container: 31 31 31;
+    --surface-container-high: 42 42 42;
+    --surface-container-highest: 53 53 53;
+    --surface-variant: 53 53 53;
+    --surface-tint: 0 230 57;
+    --inverse-surface: 226 226 226;
+    --inverse-on-surface: 48 48 48;
+    --on-background: 226 226 226;
+    --on-surface: 226 226 226;
+    --on-surface-variant: 185 204 178;
+    --primary: 235 255 226;
+    --primary-container: 0 255 65;
+    --on-primary: 0 57 7;
+    --on-primary-container: 0 113 23;
+    --primary-fixed: 114 255 112;
+    --primary-fixed-dim: 0 230 57;
+    --on-primary-fixed: 0 34 3;
+    --on-primary-fixed-variant: 0 83 14;
+    --inverse-primary: 0 110 22;
+    --secondary: 255 211 147;
+    --on-secondary: 67 44 0;
+    --secondary-container: 253 175 0;
+    --on-secondary-container: 105 70 0;
+    --secondary-fixed: 255 221 175;
+    --secondary-fixed-dim: 255 186 67;
+    --on-secondary-fixed: 40 24 0;
+    --on-secondary-fixed-variant: 97 64 0;
+    --tertiary: 255 248 244;
+    --on-tertiary: 68 43 16;
+    --tertiary-container: 255 213 174;
+    --on-tertiary-container: 122 91 60;
+    --tertiary-fixed: 255 220 189;
+    --tertiary-fixed-dim: 231 191 153;
+    --on-tertiary-fixed: 44 23 1;
+    --on-tertiary-fixed-variant: 93 65 36;
+    --error: 255 180 171;
+    --on-error: 105 0 5;
+    --error-container: 147 0 10;
+    --on-error-container: 255 218 214;
+    --outline: 132 150 126;
+    --outline-variant: 59 75 55;
+    --border: 59 75 55;
+    --input: 42 42 42;
+    --ring: 0 255 65;
+    --card: 31 31 31;
+    --card-foreground: 226 226 226;
+    --popover: 31 31 31;
+    --popover-foreground: 226 226 226;
+    --primary-foreground: 0 57 7;
+    --secondary-foreground: 67 44 0;
+    --muted: 53 53 53;
+    --muted-foreground: 185 204 178;
+    --accent: 0 230 57;
+    --accent-foreground: 0 34 3;
+    --destructive: 255 180 171;
+    --destructive-foreground: 105 0 5;
     --radius: 0rem;
   }
 
@@ -40,7 +160,7 @@
 
   body {
     background-color: rgb(var(--background) / 1);
-    color: rgb(var(--foreground) / 1);
+    color: rgb(var(--on-background) / 1);
     margin: 0;
     font-family: "JetBrains Mono", monospace;
     -webkit-font-smoothing: antialiased;
